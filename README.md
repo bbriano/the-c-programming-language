@@ -20,3 +20,12 @@ the function is exited.
 _Definition_ refers to the place where the variable is created or assigned
 storage; _declaration_ refers to places where the nature of the variable is
 stated but no storage is allocated.
+
+## Types
+
+The type of an object determines the set of values it can have andwhat
+operations can be performed on it
+
+## Precendence and order of evaluation
+
+![](img/c-order-of-operations.png)
