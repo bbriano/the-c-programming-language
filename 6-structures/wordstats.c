@@ -5,6 +5,29 @@
 #define max(a, b) ((a) > (b) ? (a) : (b))
 #define MAX_WORD_LEN 9999
 
+struct node;
+struct node node_make(char *key, int value);
+void node_kill_rec(struct node *n);
+struct node *node_insert(struct node *current, char *key, int value);
+int node_len(struct node *current);
+int node_height(struct node *current);
+void node_print(struct node *current);
+
+int main() {
+    char word[MAX_WORD_LEN+1];
+    int len;
+    struct node *root = NULL;
+
+    while ((len = scanf("%s", word)) != EOF) {
+        root = node_insert(root, word, 1);
+    }
+
+    node_print(root);
+    printf("tree_length = %d\n", node_len(root));
+    printf("tree_height = %d\n", node_height(root));
+    node_kill_rec(root);
+}
+
 struct node {
     char *key;
     int value;
@@ -58,19 +81,4 @@ void node_print(struct node *current) {
     if (current->left) node_print(current->left);
     printf("%s %d\n", current->key, current->value);
     if (current->right) node_print(current->right);
-}
-
-int main() {
-    char word[MAX_WORD_LEN+1];
-    int len;
-    struct node *root = NULL;
-
-    while ((len = scanf("%s", word)) != EOF) {
-        root = node_insert(root, word, 1);
-    }
-
-    node_print(root);
-    printf("tree_length = %d\n", node_len(root));
-    printf("tree_height = %d\n", node_height(root));
-    node_kill_rec(root);
 }
