@@ -1,0 +1,1 @@
+zsh: file mode mismatch on fd 0
